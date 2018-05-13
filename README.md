@@ -15,4 +15,12 @@ Below are the results for the different Deep Learning Models.
 | Ensemble of Small U-Net and Small Dilated U-Net | 0.689              | 0.783                | 0.640              |
 | Human Expert Re-segmentation Dice Score         | 0.711              | 0.743                | 0.629              |
 
-
+Visualizartion of the predictions and the ground truth:
+1. Case where  the model correctly predicted ground truth. Left: Original Image, Center: Ground Truth, Right: Model Prediction. Femur = Pink, Patella = Red, Tibia = Yellow
+![](https://github.com/aakashrkaku/knee-cartilage-segmentation/blob/master/plots/pred_2.png)
+2. Case where the model correctly predicted a segment not present in the ground truth. Left: Original Image, Center: Ground Truth, Right: Model Prediction. Femur = Pink, Patella = Red, Tibia = Yellow
+![](https://github.com/aakashrkaku/knee-cartilage-segmentation/blob/master/plots/pred_1.png)
+3. Case where the model was more conservative than the human expert. Left: Original Image, Center: Ground Truth, Right: Model Prediction. Femur = Pink, Patella = Red, Tibia = Yellow
+![](https://github.com/aakashrkaku/knee-cartilage-segmentation/blob/master/plots/pred_4.png)
+4. Case where the human expert was more conservative than the model. Left: Original Image, Center: Ground Truth, Right: Model Prediction. Femur = Pink, Patella = Red, Tibia = Yellow
+![](https://github.com/aakashrkaku/knee-cartilage-segmentation/blob/master/plots/pred_3.png)
