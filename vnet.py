@@ -25,7 +25,6 @@ from scipy.ndimage.interpolation import shift
 
 import warnings
 warnings.filterwarnings("ignore")
-%matplotlib inline
 plt.ion()
 
 
@@ -131,4 +130,3 @@ class Vnet(nn.Module):
         x = self.output(x)
         
         return x
-

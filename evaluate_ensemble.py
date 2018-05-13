@@ -26,12 +26,13 @@ from scipy.ndimage.interpolation import shift
 import copy
 import warnings
 warnings.filterwarnings("ignore")
-%matplotlib inline
 plt.ion()
+
+from utils import *
 
 
 def evaluate_pp(model,prediction_models, dataloader, data_size, batch_size, phase, dice_loss = dice_loss,\
-                smooth = False, filter_size = 3):
+                smooth = False, filter_size = 3, print_all = False, certainity_map = False):
     model.eval()
     running_loss = 0
     running_dice_score_class_0 = 0
@@ -62,13 +63,25 @@ def evaluate_pp(model,prediction_models, dataloader, data_size, batch_size, phas
         running_dice_score_class_1 += dice_score_batch[1] * batch_size
         running_dice_score_class_2 += dice_score_batch[2] * batch_size
         dc_dict, acc_dict = dice_score_list(true,output_pp)
+        if certainity_map:
+            cm = make_certainity_maps(output_pp)
         for k in range(3):
             dc_sr[k].append(dc_dict[k])
             acc_sr[k].append(acc_dict[k])
         preds = predict(output_pp,smooth = smooth, filter_size=filter_size)
-        if i == 11 or i == 4:
+        if i == 11 or i == 4 or print_all:
             for k in range(batch_size):
-                image_to_mask(input[k,1,:,:].data.cpu().numpy(),\
+                if certainity_map:
+                    image_to_mask(input[k,1,:,:].data.cpu().numpy(),\
+                              true[k,0,:,:].data.cpu().numpy(),\
+                              true[k,1,:,:].data.cpu().numpy(),\
+                              true[k,2,:,:].data.cpu().numpy(),\
+                             preds[0][k,:,:].cpu().numpy(),\
+                             preds[1][k,:,:].cpu().numpy(),\
+                             preds[2][k,:,:].cpu().numpy(),\
+                            cm[k].data.cpu().numpy())
+                else:
+                    image_to_mask(input[k,1,:,:].data.cpu().numpy(),\
                               true[k,0,:,:].data.cpu().numpy(),\
                               true[k,1,:,:].data.cpu().numpy(),\
                               true[k,2,:,:].data.cpu().numpy(),\

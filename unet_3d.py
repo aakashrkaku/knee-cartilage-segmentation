@@ -25,7 +25,6 @@ from scipy.ndimage.interpolation import shift
 
 import warnings
 warnings.filterwarnings("ignore")
-%matplotlib inline
 plt.ion()   
 
 class Downsample_Unet3d(nn.Module):

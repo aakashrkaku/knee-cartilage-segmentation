@@ -26,8 +26,9 @@ from scipy.ndimage.interpolation import shift
 
 import warnings
 warnings.filterwarnings("ignore")
-%matplotlib inline
 plt.ion()
+
+from utils import *
 
 def train_model_3d(model, optimizer,dataloader, data_sizes, batch_size, num_epochs = 100, verbose = False):
     since = time.time()

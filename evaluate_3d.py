@@ -25,9 +25,9 @@ from scipy.ndimage.interpolation import shift
 
 import warnings
 warnings.filterwarnings("ignore")
-%matplotlib inline
 plt.ion()
 
+from utils import *
 
 def evaluate_3d(model, dataloader, data_size, batch_size, phase):
     model.eval()

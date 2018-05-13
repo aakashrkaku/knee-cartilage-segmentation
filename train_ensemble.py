@@ -26,8 +26,9 @@ from scipy.ndimage.interpolation import shift
 import copy
 import warnings
 warnings.filterwarnings("ignore")
-%matplotlib inline
 plt.ion()
+
+from utils import *
 
 def train_pp_model(model,prediction_models, optimizer,dataloader, data_sizes, batch_size, name, num_epochs = 100,
                 verbose = False, dice_loss = dice_loss):
