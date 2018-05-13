@@ -25,8 +25,8 @@ Below are the results for the different Deep Learning Models.
 4. Case where the human expert was more conservative than the model. Left: Original Image, Center: Ground Truth, Right: Model Prediction. Femur = Pink, Patella = Red, Tibia = Yellow
 ![](https://github.com/aakashrkaku/knee-cartilage-segmentation/blob/master/plots/pred_3.png)
 
-# Visualization of Confidence maps
-Confidence maps are made that helps the user to understand the how confident the model is of the predictions.
+# Confidence maps
+Confidence maps are made that helps the user to understand how confident the model is of the predictions.
 
 A confidence map for two example validation images can be seen below. The circled stray voxels are incorrectly classified as one of the cartilage. It can be seen that incorrect voxels have low confidence.
 ![](https://github.com/aakashrkaku/knee-cartilage-segmentation/blob/master/plots/cert_image.png)
