@@ -15,7 +15,7 @@ Below are the results for the different Deep Learning Models.
 | Ensemble of Small U-Net and Small Dilated U-Net | 0.689              | 0.783                | 0.640              |
 | Human Expert Re-segmentation Dice Score         | 0.711              | 0.743                | 0.629              |
 
-Visualizartion of the predictions and the ground truth:
+# Visualizartion of the predictions and the ground truth
 1. Case where  the model correctly predicted ground truth. Left: Original Image, Center: Ground Truth, Right: Model Prediction. Femur = Pink, Patella = Red, Tibia = Yellow
 ![](https://github.com/aakashrkaku/knee-cartilage-segmentation/blob/master/plots/pred_2.png)
 2. Case where the model correctly predicted a segment not present in the ground truth. Left: Original Image, Center: Ground Truth, Right: Model Prediction. Femur = Pink, Patella = Red, Tibia = Yellow
@@ -24,3 +24,12 @@ Visualizartion of the predictions and the ground truth:
 ![](https://github.com/aakashrkaku/knee-cartilage-segmentation/blob/master/plots/pred_4.png)
 4. Case where the human expert was more conservative than the model. Left: Original Image, Center: Ground Truth, Right: Model Prediction. Femur = Pink, Patella = Red, Tibia = Yellow
 ![](https://github.com/aakashrkaku/knee-cartilage-segmentation/blob/master/plots/pred_3.png)
+
+# Visualization of Confidence maps
+Confidence maps are made that helps the user to understand the how confident the model is of the predictions.
+
+A confidence map for two example validation images can be seen below. The circled stray voxels are incorrectly classified as one of the cartilage. It can be seen that incorrect voxels have low confidence.
+![](https://github.com/aakashrkaku/knee-cartilage-segmentation/blob/master/plots/cert_image.png)
+
+
+
